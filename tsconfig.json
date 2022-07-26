@@ -1,11 +1,24 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
+    "strict": true,
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "CommonJS",
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "allowJs": true,
-    "moduleResolution": "node"
-  }
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": "src",
+    "paths": {
+      "Components/*": ["components/*"],
+      "Pages/*": ["pages/*"],
+      "Themes/*": ["themes/*"],
+      "Assets/*": ["assets/*"],
+      "Config/*": ["config/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"]
 }

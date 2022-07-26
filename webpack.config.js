@@ -2,26 +2,22 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: {
-    index: './src/index.js',
+    index: './src/index.tsx',
   },
+  devtool: 'inline-source-map',
   output: {
-    filename: '[name].js',
+    filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/i,
+        test: /\.(js|jsx|tsx|ts)$/i,
         use: ['babel-loader'],
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.(tsx|ts)?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
+        exclude: /node_modules/
       },
       {
         test: /\.css$/i,
@@ -33,21 +29,33 @@ module.exports = {
       },
     ],
   },
-  // devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'index.html')
+      template: path.join(__dirname, 'public', 'index.html')
     }),
   ],
   devServer: {
     static: './dist',
+    hot: true,
   },
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: 'all',
-  //   },
-  // },
   optimization: {
-    minimize: false
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      Components: path.resolve(__dirname, 'src/components/'),
+      Pages: path.resolve(__dirname, "src/pages/"),
+      Themes: path.resolve(__dirname, "src/themes/"),
+      Assets: path.resolve(__dirname, "src/assets/"),
+      Config: path.resolve(__dirname, "src/config/"),
+    }
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
   }
 };
