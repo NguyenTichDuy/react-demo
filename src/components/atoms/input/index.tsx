@@ -3,12 +3,10 @@ import {
   InputProps as InputCharkaProps,
 } from "@chakra-ui/react";
 
-interface InputProps {
-  styles: InputCharkaProps;
-}
+interface InputProps extends InputCharkaProps {}
 
-const Input = ({ styles }: InputProps) => {
-  return <InputCharka {...styles} />;
+const Input = ({ ...rest }: InputProps) => {
+  return <InputCharka {...rest} />;
 };
 
 export default Input;

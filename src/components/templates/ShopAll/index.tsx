@@ -15,7 +15,7 @@ const ShopAll = ({ products, title }: ProductListProps) => {
       <Title chilren={title} />
       <ProductsList products={products} />
       <Flex alignItems={"center"}>
-        <Button>Load More</Button>
+        <Button variant={"plane"}>Load More</Button>
       </Flex>
     </VStack>
   );
