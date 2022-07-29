@@ -10,4 +10,4 @@ This is demo about react project with atomic design, webpack
 
 # Struct folder
 
-![alt text](https://github.com/NguyenTichDuy/react-demo/tree/master/public/assets/images/atoms-struct.png?raw=true)
+![struct image](https://github.com/NguyenTichDuy/react-demo/blob/master/public/assets/images/atoms-struct.png)
