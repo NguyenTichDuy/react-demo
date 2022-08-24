@@ -1,4 +1,5 @@
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/layout";
+import { Image } from "@chakra-ui/image";
 
 export interface SizeImage {
   original: string;

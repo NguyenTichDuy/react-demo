@@ -1,7 +1,7 @@
 import {
   Input as InputCharka,
   InputProps as InputCharkaProps,
-} from "@chakra-ui/react";
+} from "@chakra-ui/input";
 
 interface InputProps extends InputCharkaProps {}
 

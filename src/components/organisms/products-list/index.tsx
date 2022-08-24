@@ -1,4 +1,4 @@
-import { Grid, VStack } from "@chakra-ui/react";
+import { Grid, VStack } from "@chakra-ui/layout";
 import ProductItem, {
   ProductItemProps,
 } from "Components/molecules/product-item";

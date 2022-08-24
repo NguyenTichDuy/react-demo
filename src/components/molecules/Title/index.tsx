@@ -1,4 +1,4 @@
-import { Box, Divider, Heading } from "@chakra-ui/react";
+import { Box, Divider, Heading } from "@chakra-ui/layout";
 
 interface TitleProps {
   chilren: string;

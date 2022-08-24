@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import ShopAll from "Components/templates/ShopAll";
 import { fetchData } from "Config/fetch-api";
@@ -17,7 +16,7 @@ const home = () => {
   };
   const getProductsApi = () =>
     fetchData({ params, method: "GET", pathname: "search" });
-  const { data: getData, error } = useQuery<ProductsItemResponse>(
+  const { data: getData } = useQuery<ProductsItemResponse>(
     ["products"],
     getProductsApi
   );

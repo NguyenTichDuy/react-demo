@@ -1,4 +1,4 @@
-import { Box, Flex, VStack } from "@chakra-ui/react";
+import { Flex, VStack } from "@chakra-ui/layout";
 import Button from "Components/atoms/button";
 import { ProductItemProps } from "Components/molecules/product-item";
 import Title from "Components/molecules/Title";

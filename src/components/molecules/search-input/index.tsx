@@ -1,4 +1,4 @@
-import { HStack, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { Input, InputGroup, InputLeftElement } from "@chakra-ui/input";
 import { Search2Icon } from "@chakra-ui/icons";
 
 const SearchInput = () => {

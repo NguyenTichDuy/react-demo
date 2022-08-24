@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Heading, Text, VStack } from "@chakra-ui/react";
+import { Grid, GridItem, Text, VStack } from "@chakra-ui/layout";
 import Button from "Components/atoms/button";
 import Input from "Components/atoms/input";
 

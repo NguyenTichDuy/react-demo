@@ -1,4 +1,7 @@
-import { Avatar, Box, HStack, Icon, Text } from "@chakra-ui/react";
+// import { Avatar, HStack, Text } from "@chakra-ui/react";
+import { Avatar } from "@chakra-ui/avatar";
+// import { Text } from "@chakra-ui/text";
+import { HStack, Text } from "@chakra-ui/layout";
 
 const LoginAvatar = () => {
   return (

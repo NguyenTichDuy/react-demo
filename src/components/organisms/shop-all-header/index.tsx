@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem, HStack, VStack } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/layout";
 import LoginAvatar from "Components/molecules/login-avatar";
 import Logo from "Components/molecules/logo";
 import Navigate from "Components/molecules/navigate";

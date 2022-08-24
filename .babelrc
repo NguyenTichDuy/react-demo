@@ -3,5 +3,15 @@
     ["@babel/preset-react", { "runtime": "automatic" }],
     "@babel/preset-typescript",
     "@babel/preset-env"
+  ],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "@chakra-ui",
+        "libraryDirectory": "dist",
+        "camel2DashComponentName": false
+      }
+    ]
   ]
 }

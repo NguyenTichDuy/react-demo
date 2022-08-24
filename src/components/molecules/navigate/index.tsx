@@ -1,4 +1,6 @@
-import { Box, Button, HStack } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/button";
+import { HStack } from "@chakra-ui/layout";
+
 import { Link } from "react-router-dom";
 import { NAVIGATE_DATA } from "./data";
 
