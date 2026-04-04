@@ -12,7 +12,7 @@ interface ProductListProps {
 const ShopAll = ({ products, title }: ProductListProps) => {
   return (
     <VStack spacing={"8"}>
-      <Title chilren={title} />
+      <Title>{title}</Title>
       <ProductsList products={products} />
       <Flex alignItems={"center"}>
         <Button variant={"plane"}>Load More</Button>

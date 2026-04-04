@@ -11,7 +11,13 @@ const ProductsList = ({ products }: ProductsListProps) => {
     <VStack>
       <Grid templateColumns="repeat(4, 1fr)" gap={6}>
         {products?.map((val) => (
-          <ProductItem alt={val.alt} price={"$12.00"} src={val.src} />
+          <ProductItem
+            key={val.id ?? val.src.medium}
+            id={val.id}
+            alt={val.alt}
+            price={val.price}
+            src={val.src}
+          />
         ))}
       </Grid>
     </VStack>

@@ -8,6 +8,7 @@ export interface SizeImage {
 }
 
 export interface ProductItemProps {
+  id?: number;
   src: SizeImage;
   alt: string;
   price: string;
@@ -16,7 +17,7 @@ export interface ProductItemProps {
 const ProductItem = ({ src, alt, price }: ProductItemProps) => {
   return (
     <Box>
-      <Image src={src.original} />
+      <Image src={src.medium} alt={alt} loading="lazy" htmlWidth={400} />
       <Text>{alt}</Text>
       <Text color={"orange"}>{price}</Text>
     </Box>
