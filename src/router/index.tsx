@@ -6,6 +6,7 @@ import Sale from "Pages/sale";
 import About from "Pages/about";
 import Contact from "Pages/contact";
 import NotFound from "Pages/not-found";
+import ChecklistBlockerPage from "Pages/checklist-blocker";
 
 const Routers = () => {
   return (
@@ -16,6 +17,7 @@ const Routers = () => {
       <Route path="/sale" element={<Sale />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/checklist-blocker" element={<ChecklistBlockerPage />} />
       <Route path="*" element={<NotFound />} />
     </RouterList>
   );

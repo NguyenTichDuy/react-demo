@@ -28,6 +28,10 @@ const NAVIGATE_DATA: NavigateDataType[] = [
     name: "Contact",
     link: "/contact",
   },
+  {
+    name: "Checklist Demo",
+    link: "/checklist-blocker",
+  },
 ];
 
 export { NAVIGATE_DATA };
