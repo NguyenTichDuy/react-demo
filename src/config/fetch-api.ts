@@ -1,6 +1,5 @@
 const PEXELS_API_ORIGIN = "https://api.pexels.com";
-const token =
-  "563492ad6f91700001000001b61382187ea546f0a1587d00d525bdca";
+const token = process.env.PEXELS_API_KEY ?? "";
 
 type MethodType = "GET" | "POST";
 
@@ -15,6 +14,12 @@ export const fetchData = async ({
   params,
   pathname,
 }: FetchDataType) => {
+  if (!token) {
+    throw new Error(
+      "Missing PEXELS_API_KEY. Set it in the environment before building, or rely on the webpack default."
+    );
+  }
+
   const url = new URL(`${PEXELS_API_ORIGIN}/v1/${pathname}`);
   url.search = new URLSearchParams(params).toString();
 

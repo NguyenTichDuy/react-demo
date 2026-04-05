@@ -26,7 +26,7 @@ const Home = () => {
     orientation: "portrait",
   };
 
-  const { data } = useQuery({
+  const { data, isLoading, isError, error, refetch } = useQuery({
     queryKey: ["products", params],
     queryFn: () =>
       fetchData({
@@ -45,7 +45,20 @@ const Home = () => {
     })
   );
 
-  return <ShopAll products={products} title="SHOP ALL" />;
+  const handleRetry = () => {
+    void refetch();
+  };
+
+  return (
+    <ShopAll
+      products={products}
+      title="SHOP ALL"
+      isLoading={isLoading}
+      isError={isError}
+      error={error instanceof Error ? error : null}
+      onRetry={handleRetry}
+    />
+  );
 };
 
 export default Home;

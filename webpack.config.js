@@ -1,6 +1,11 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const pexelsApiKey =
+  process.env.PEXELS_API_KEY ||
+  '563492ad6f91700001000001b61382187ea546f0a1587d00d525bdca';
 
 module.exports = {
   mode: "production",
@@ -34,7 +39,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'public', 'index.html')
     }),
-    new BundleAnalyzerPlugin()
+    new webpack.DefinePlugin({
+      'process.env.PEXELS_API_KEY': JSON.stringify(pexelsApiKey),
+    }),
+    ...(process.env.ANALYZE
+      ? [new BundleAnalyzerPlugin({ analyzerMode: 'static', openAnalyzer: false })]
+      : []),
   ],
   devServer: {
     static: './dist',
