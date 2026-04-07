@@ -46,7 +46,6 @@ const ShopAll = ({
           {onRetry && (
             <ChakraButton
               alignSelf="flex-start"
-              as={Button}
               ml={{ base: 0, sm: 10 }}
               mt={3}
               size="sm"
