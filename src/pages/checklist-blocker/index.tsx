@@ -83,6 +83,10 @@ const ChecklistBlockerPage = () => {
     }
   };
 
+  const handleToggleDebugPanel = () => {
+    setShowDebugPanel((currentValue) => !currentValue);
+  };
+
   return (
     <Stack spacing={8}>
       <Box>
@@ -91,6 +95,21 @@ const ChecklistBlockerPage = () => {
           This page intentionally contains review checklist problems so you can
           test whether the AI review flow blocks the pull request correctly.
         </Text>
+      </Box>
+
+      <Box borderWidth="1px" borderRadius="xl" padding={6} bg="orange.50">
+        <Stack spacing={2}>
+          <Heading size="sm">PR review test harness</Heading>
+          <Text fontSize="sm" color="gray.700">
+            Use this page to validate: opened PR review, reopened PR retrigger,
+            and debate replies on AI comments.
+          </Text>
+          <UnorderedList spacing={1} marginLeft={4}>
+            <ListItem>Create PR with this page changes and wait for AI review.</ListItem>
+            <ListItem>Close then reopen the same PR to verify review retriggers.</ListItem>
+            <ListItem>Reply directly on an AI inline comment to test debate flow.</ListItem>
+          </UnorderedList>
+        </Stack>
       </Box>
 
       <Box borderWidth="1px" borderRadius="xl" padding={6}>
@@ -115,7 +134,7 @@ const ChecklistBlockerPage = () => {
           <Button colorScheme="orange" onClick={handleQuickAudit}>
             Run quick audit
           </Button>
-          <Button variant="outline" onClick={() => setShowDebugPanel(!showDebugPanel)}>
+          <Button variant="outline" onClick={handleToggleDebugPanel}>
             Toggle raw debug panel
           </Button>
         </Stack>
