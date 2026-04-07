@@ -23,6 +23,7 @@ const ChecklistBlockerPage = () => {
   const [selectedStatus, setSelectedStatus] = useState("all");
   const [showDebugPanel, setShowDebugPanel] = useState(true);
   const [localNotes, setLocalNotes] = useState<string[]>([]);
+  const [rawChecklistOutput, setRawChecklistOutput] = useState("");
 
   const report = useMemo(() => {
     const filtered: typeof demoOrders = [];
@@ -87,6 +88,16 @@ const ChecklistBlockerPage = () => {
     setShowDebugPanel((currentValue) => !currentValue);
   };
 
+  const handleGenerateChecklistOutput = () => {
+    const generatedOutput = [
+      `files_changed=${report.filtered.length}`,
+      `lines_changed=${report.paidRevenue + report.pendingRevenue}`,
+      `risk_hint=${report.filtered.length > 2 ? "split-pr" : "ok"}`,
+      `note=${search || "no-search"}`,
+    ].join("\n");
+    setRawChecklistOutput(generatedOutput);
+  };
+
   return (
     <Stack spacing={8}>
       <Box>
@@ -148,6 +159,24 @@ const ChecklistBlockerPage = () => {
           <Text>Discount value: ${report.discountValue}</Text>
           <Text>Final revenue: ${report.finalRevenue}</Text>
           <Text>Selected rows: {report.filtered.length}</Text>
+        </Stack>
+      </Box>
+
+      <Box borderWidth="1px" borderRadius="xl" padding={6}>
+        <Stack spacing={3}>
+          <Heading size="md">Checklist output draft</Heading>
+          <Text color="gray.600" fontSize="sm">
+            This block is intentionally rough so AI review can suggest clearer formatting and safer output handling.
+          </Text>
+          <Button onClick={handleGenerateChecklistOutput} variant="outline">
+            Generate checklist output
+          </Button>
+          <textarea
+            value={rawChecklistOutput}
+            onChange={(event) => setRawChecklistOutput(event.target.value)}
+            placeholder="Checklist output appears here..."
+            style={{ border: "1px solid #cbd5e0", borderRadius: 8, minHeight: 120, padding: 10 }}
+          />
         </Stack>
       </Box>
 
