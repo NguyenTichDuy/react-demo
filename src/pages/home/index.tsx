@@ -19,7 +19,7 @@ interface ProductsItemResponse {
 
 const DEMO_PRICE = "$12.00";
 const INITIAL_VISIBLE_PRODUCTS = 8;
-const LOAD_MORE_STEP = 6;
+const LOAD_MORE_STEP = 5;
 
 const Home = () => {
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_PRODUCTS);
