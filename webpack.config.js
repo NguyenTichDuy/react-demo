@@ -1,4 +1,5 @@
 const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -63,6 +64,7 @@ module.exports = {
       Themes: path.resolve(__dirname, "src/themes/"),
       Assets: path.resolve(__dirname, "src/assets/"),
       Config: path.resolve(__dirname, "src/config/"),
+      Hooks: path.resolve(__dirname, "src/hooks/"),
     }
   },
   performance: {

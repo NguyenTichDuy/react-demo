@@ -1,32 +1,36 @@
-interface navigateDataType {
+interface NavigateDataType {
   name: string;
   link: string;
 }
 
-const NAVIGATE_DATA: navigateDataType[] = [
+const NAVIGATE_DATA: NavigateDataType[] = [
   {
     name: "Shop All",
     link: "/",
   },
   {
     name: "Women",
-    link: "/",
+    link: "/women",
   },
   {
     name: "Men",
-    link: "/",
+    link: "/men",
   },
   {
     name: "Sale",
-    link: "/",
+    link: "/sale",
   },
   {
     name: "About",
-    link: "/",
+    link: "/about",
   },
   {
     name: "Contact",
-    link: "/",
+    link: "/contact",
+  },
+  {
+    name: "Checklist Demo",
+    link: "/checklist-blocker",
   },
 ];
 

@@ -3,6 +3,7 @@ import {
   AlertDescription,
   AlertIcon,
   AlertTitle,
+  Box,
   Button as ChakraButton,
 } from "@chakra-ui/react";
 import { Flex, VStack } from "@chakra-ui/layout";
@@ -30,26 +31,30 @@ const ShopAll = ({
 }: ProductListProps) => {
   return (
     <VStack spacing={"8"} align="stretch" width="100%">
-      <Title>{title}</Title>
       {isError && (
-        <Alert status="error" borderRadius="md">
-          <AlertIcon />
-          <Flex flexDirection="column" gap={1}>
-            <AlertTitle>Could not load products</AlertTitle>
-            <AlertDescription>
-              {error?.message ?? "Something went wrong. Try again."}
-            </AlertDescription>
-            {onRetry && (
-              <ChakraButton
-                mt={2}
-                size="sm"
-                variant="outline"
-                onClick={onRetry}
-              >
-                Retry
-              </ChakraButton>
-            )}
+        <Alert status="error" borderRadius="md" flexDirection="column" alignItems="stretch">
+          <Flex>
+            <AlertIcon mt={1} />
+            <Box ml={3}>
+              <AlertTitle>Could not load products</AlertTitle>
+              <AlertDescription>
+                {error?.message ?? "Something went wrong. Try again."}
+              </AlertDescription>
+            </Box>
           </Flex>
+          {onRetry && (
+            <ChakraButton
+              alignSelf="flex-start"
+              as={Button}
+              ml={{ base: 0, sm: 10 }}
+              mt={3}
+              size="sm"
+              variant="outline"
+              onClick={onRetry}
+            >
+              Retry
+            </ChakraButton>
+          )}
         </Alert>
       )}
       {!isError && (

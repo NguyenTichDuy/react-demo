@@ -16,7 +16,8 @@
       "Pages/*": ["pages/*"],
       "Themes/*": ["themes/*"],
       "Assets/*": ["assets/*"],
-      "Config/*": ["config/*"]
+      "Config/*": ["config/*"],
+      "Hooks/*": ["hooks/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],

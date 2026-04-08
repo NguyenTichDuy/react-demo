@@ -1,9 +1,9 @@
 import ShopAll from "Components/templates/ShopAll";
 import { usePexelsProducts } from "Hooks/use-pexels-products";
 
-const Home = () => {
+const Men = () => {
   const { products, isLoading, isError, error, refetch } =
-    usePexelsProducts("tshirt");
+    usePexelsProducts("men fashion");
 
   const handleRetry = () => {
     void refetch();
@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <ShopAll
       products={products}
-      title="SHOP ALL"
+      title="MEN"
       isLoading={isLoading}
       isError={isError}
       error={error}
@@ -21,4 +21,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Men;

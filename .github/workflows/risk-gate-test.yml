@@ -1,0 +1,10 @@
+name: Risk Gate Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  noop:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Intentional workflow change for PR risk score testing"
