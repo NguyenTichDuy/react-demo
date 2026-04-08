@@ -6,7 +6,14 @@ import ShopAllHeader from "Components/organisms/shop-all-header";
 import Footer from "Components/organisms/footer";
 // import Themes from "Themes/index";
 
-const queryClient = new QueryClient({});
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60_000,
+      retry: 1,
+    },
+  },
+});
 
 function App() {
   return (

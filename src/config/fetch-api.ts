@@ -1,6 +1,5 @@
-const token = "563492ad6f91700001000001b61382187ea546f0a1587d00d525bdca";
-const url = new URL("https://api.pexels.com/v1/search");
-const pathName = "/v1/";
+const PEXELS_API_ORIGIN = "https://api.pexels.com";
+const token = process.env.PEXELS_API_KEY ?? "";
 
 type MethodType = "GET" | "POST";
 
@@ -15,14 +14,27 @@ export const fetchData = async ({
   params,
   pathname,
 }: FetchDataType) => {
+  if (!token) {
+    throw new Error(
+      "Missing PEXELS_API_KEY. Set it in the environment before building, or rely on the webpack default."
+    );
+  }
+
+  const url = new URL(`${PEXELS_API_ORIGIN}/v1/${pathname}`);
   url.search = new URLSearchParams(params).toString();
-  url.pathname = pathName + pathname;
+
   const response = await fetch(url, {
-    method: method,
+    method,
     headers: {
       "Content-Type": "application/json",
       Authorization: token,
     },
   });
-  return response.json();
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`Pexels API ${response.status}: ${body}`);
+  }
+
+  return response.json() as Promise<unknown>;
 };

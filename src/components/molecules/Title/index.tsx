@@ -1,14 +1,14 @@
 import { Box, Divider, Heading } from "@chakra-ui/layout";
 
 interface TitleProps {
-  chilren: string;
+  children: string;
 }
 
-const Title = ({ chilren }: TitleProps) => {
+const Title = ({ children }: TitleProps) => {
   return (
     <Box position="relative">
       <Heading as={"h1"} size={"4xl"} zIndex={0}>
-        {chilren}
+        {children}
       </Heading>
       <Divider
         size={"lg"}
