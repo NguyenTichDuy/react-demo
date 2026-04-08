@@ -18,6 +18,10 @@ interface ProductListProps {
   isError?: boolean;
   error?: Error | null;
   onRetry?: () => void;
+  hasMore?: boolean;
+  totalProducts?: number;
+  visibleProducts?: number;
+  onLoadMore?: () => void;
 }
 
 const ShopAll = ({
@@ -27,10 +31,22 @@ const ShopAll = ({
   isError = false,
   error = null,
   onRetry,
+  hasMore = false,
+  totalProducts = 0,
+  visibleProducts = 0,
+  onLoadMore,
 }: ProductListProps) => {
   return (
     <VStack spacing={"8"} align="stretch" width="100%">
       <Title>{title}</Title>
+      {!isLoading && !isError && (
+        <Alert status="info" borderRadius="md" variant="left-accent">
+          <AlertIcon />
+          <AlertDescription>
+            Showing {visibleProducts} of {totalProducts} products.
+          </AlertDescription>
+        </Alert>
+      )}
       {isError && (
         <Alert status="error" borderRadius="md">
           <AlertIcon />
@@ -57,7 +73,9 @@ const ShopAll = ({
       )}
       {!isLoading && !isError && (
         <Flex alignItems={"center"} justifyContent="center">
-          <Button variant={"plane"}>Load More</Button>
+          <Button variant={"plane"} onClick={onLoadMore} isDisabled={!hasMore}>
+            {hasMore ? "Load More" : "All products loaded"}
+          </Button>
         </Flex>
       )}
     </VStack>
