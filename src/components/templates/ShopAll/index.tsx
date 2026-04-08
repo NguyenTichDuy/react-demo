@@ -31,7 +31,6 @@ const ShopAll = ({
 }: ProductListProps) => {
   return (
     <VStack spacing={"8"} align="stretch" width="100%">
-      <Title>{title}</Title>
       {isError && (
         <Alert status="error" borderRadius="md" flexDirection="column" alignItems="stretch">
           <Flex>
